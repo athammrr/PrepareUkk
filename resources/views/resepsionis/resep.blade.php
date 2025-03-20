@@ -19,27 +19,30 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card shadow mb-4" >
+            <h1 class="text-dark">Daftar Pemesanan</h1>
             <table class="table border-spacing-2">
                 <thead>
                     <tr>
-                        <th >Tipe Kamar</th>
-                        <th >Jumlah Kamar</th>
-                        <th colspan="2">Aksi</th>
+                        <th>Nama Tamu</th>
+                        <th>Tanggal Checkin</th>
+                        <th>Tanggal Checkout</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @if($dataUser->isNotEmpty())
-                        @foreach ($dataUser as $user)
+                    @if($cekin->isNotEmpty())
+                        @foreach ($cekin as $data)
                             <tr>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
+                                <td>{{ $data->nama_tamu }}</td>
+                                <td>{{ $data->tgl_Cekin }}</td>
+                                <td>{{ $data->tgl_Cekout }}</td>
                                 <td class="d-flex gap-5">
-                                    <a href="#" class="btn btn-primary btn-sm">
+                                    <a href="{{ route('resepsionis.show', $data->id) }}" class="btn btn-primary btn-sm">
                                         Show
                                     </a>
 
                                     <a href="#" class="btn btn-warning btn-sm">
-                                        Edit
+                                        Check In 
                                     </a>
                                 </td>
                             </tr>
@@ -51,9 +54,6 @@
                     @endif
                 </tbody>
             </table>
-            <div class="p-3 ">
-                <button class="btn btn-success btn-lg" type="submit">+</button>
-            </div>
         </div>
 </div>
 @endsection

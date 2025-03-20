@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FaHotelController;
+use App\Http\Controllers\FaKamarController;
+use App\Http\Controllers\KamarController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResepsionisController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +25,7 @@ Route::get('/', function () {
 
 Route::group(['middleware'=>'role:admin, resepsionis, user', 'prefix'=>'car','as'=>'car.'], function() {
     Route::group(['prefix'=>'car-type', 'as'=>'car-type.'], function(){
-        Route::resource('admin', AdminController::class);
+        //
     });
 });
 
@@ -33,6 +37,16 @@ Route::get('/home', function () {
 Route::get('/dashboard', [AdminController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+
+Route::resource('admin', AdminController::class);
+Route::resource('resepsionis', ResepsionisController::class);
+Route::resource('kamar', KamarController::class);
+Route::resource('fakamar', FaKamarController::class);
+Route::resource('fahotel', FaHotelController::class);
+
+
+
+
 
 
 Route::middleware('auth')->group(function () {

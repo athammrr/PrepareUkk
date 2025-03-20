@@ -10,10 +10,14 @@ class AdminController extends Controller
     public function index()
     {
         // Ambil semua data pengguna dari database
-        $dataUser = User::all();
+        $user = User::all();
 
         // Kirim data ke Blade menggunakan compact()
-        return view('admin.dashboard', compact('dataUser'));
+        return view('admin.akun.akun', compact('user'));
+    }
+
+    public function create() {
+        return view('admin.kamar.tambah');
     }
 
     public function store(Request $request)
@@ -27,7 +31,18 @@ class AdminController extends Controller
         // Simpan data ke database
         User::create($request->all());
 
-        return redirect()->route('admin.dashboard')->with('success', 'User berhasil ditambahkan');
+        return redirect()->route('admin.index')->with('success', 'User berhasil ditambahkan');
+    }
+
+    public function destroy($id){
+        $user = User::find($id);
+
+        if(!$user){
+            return redirect()->route('admin.index')->with('error', 'User not found');
+        }
+
+        $user->delete();
+        return redirect()->route('admin.index')->with('success', 'Data deleted successfully');
     }
 }
 

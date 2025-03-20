@@ -11,17 +11,23 @@
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto">
         <!-- User Dropdown -->
-        @if ($role = 'admin')
+        @php
+            $role = Auth::user()->role ?? 'guest'; 
+        @endphp
+        @if ($role == 'admin')
             <li class="nav-item">
-                <a class="nav-link text-dark" href="#">Kamar</a>
+                <a class="nav-link text-dark" href="{{ route('kamar.index') }}">Kamar</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark"  href="#">Fasilitas Kamar</a>
+                <a class="nav-link text-dark"  href="{{ route('fakamar.index') }}">Fasilitas Kamar</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="#">Fasilitas Hotel</a>
+                <a class="nav-link text-dark" href="{{ route('fahotel.index') }}">Fasilitas Hotel</a>
             </li>
-            @else
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="{{ route('admin.index') }}" status >Kelola Akun</a>
+            </li>
+        @else
         @endif
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"

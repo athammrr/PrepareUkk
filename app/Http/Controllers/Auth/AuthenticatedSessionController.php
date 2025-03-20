@@ -32,7 +32,7 @@ class AuthenticatedSessionController extends Controller
         if(Auth::user() && Auth::user()->role == 'admin'){
             return redirect()->route('dashboard');
         } else if(Auth::user() && Auth::user()->role == 'resepsionis') {
-            return redirect()->route('resepsionis');
+            return redirect()->route('resepsionis.index');
         } elseif(Auth::user() && Auth::user()->role == 'user') {
             return redirect()->route('home');
         } else {
