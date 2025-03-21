@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('tgl_Cekout');
             $table->string('tipe');
             $table->integer('jmlh_Kamar');
-            $table->timestamp('tggl_pemesanan')->nullable();
+            $table->timestamp('tggl_pemesanan');
             $table->timestamps();
         });
     }

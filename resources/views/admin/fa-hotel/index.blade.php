@@ -27,6 +27,7 @@
                             <th > Fasilitas </th>
                             <th > Status </th>
                             <th rowspan="2"> Keterangan </th>
+                            <th rowspan="2"> Image </th>
                             <th colspan="2">Aksi</th>
                         </tr>
                     </thead>
@@ -37,6 +38,9 @@
                                     <td>{{ $data->nama_fasilitas }}</td>
                                     <td>{{ $data->status }}</td>
                                     <td>{{ $data->keterangan }}</td>
+                                    <td>
+                                        <img class="size" src="{{ asset('fasilitas_hotels/'. Session::get('image')) }}" alt="gambar">
+                                    </td>
                                     <td class="d-flex gap-5">
                                         <a href="{{ route('fahotel.show', $data->id) }}" class="btn btn-primary btn-sm">
                                             Show

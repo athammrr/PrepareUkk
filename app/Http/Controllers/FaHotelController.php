@@ -4,15 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\FasilitasHotel;
+use App\Models\Image;
 
 class FaHotelController extends Controller
 {
     public function index()
     {
-        // Ambil semua data pengguna dari database
         $hotel = FasilitasHotel::all();
 
-        // Kirim data ke Blade menggunakan compact()
         return view('admin.fa-hotel.index', compact('hotel'));
     }
 
@@ -23,15 +22,24 @@ class FaHotelController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'tipe'  => 'required|string|max:255|in:Superior,Deluxe', 
-            'jmlh_kamar' => 'required|integer|max:50',
-            'harga' => 'required|string|max:100',
+            'nama_fasilitas'  => 'required|string|max:255', 
+            'status' => 'required|string|max:255|in:available,not available',
+            'keterangan' => 'required|string|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
-        // Simpan data ke database
-        FasilitasHotel::create($request->all());
+        $image = new Image();
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('fasilitas_hotels'),$imageName);
 
-        return redirect()->route('fahotel.index')->with('success', 'Fasilitas Hotel berhasil ditambahkan');
+        FasilitasHotel::create([
+            'nama_fasilitas' => $request->nama_fasilitas,
+            'status' => $request->status,
+            'keterangan' => $request->keterangan,
+            'image' => $imageName,
+        ]);
+
+        return redirect()->route('fahotel.index')->with('success', 'Fasilitas Hotel berhasil ditambahkan')->with('image', $imageName);
     }
 
     public function show($id)
@@ -55,19 +63,31 @@ class FaHotelController extends Controller
     }
 
 
-    public function update(Request $request, FasilitasHotel $hotel)
+    public function update(Request $request, $id)
     {
+        $hotel = FasilitasHotel::where('id',$id)->first();
+
+        if(!$hotel){
+            return back()->withErrors(['msg' => 'Data tidak ditemukan']);
+        }
+
         $request->validate([
-            'tipe'  => 'required|string|max:255|in:Superior,Deluxe', 
-            'jmlh_kamar' => 'required|integer|max:50',
-            'harga' => 'required|string|max:100',
+            'nama_fasilitas'  => 'required|string|max:255', 
+            'status' => 'required|string|max:255|in:available,not available',
+            'keterangan' => 'required|string|max:255',
         ]);
 
-        $hotel->update($request->all());
+        $hotel->update([
+            'nama_fasilitas' => $request->nama_fasilitas,
+            'status' => $request->status,
+            'keterangan' => $request->keterangan,
+        ]);
 
         return redirect()->route('fahotel.index')
             ->with('success', 'Data aparat updated successfully.');
     }
+
+
 
 
 

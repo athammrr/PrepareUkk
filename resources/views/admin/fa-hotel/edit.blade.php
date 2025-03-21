@@ -7,33 +7,32 @@
     <div class="card shadow-sm p-4">
         <h1 class="mb-4 text-center">Edit Data Kamar</h1>
 
-        <form action="{{ route('kamar.update', $kamar->id) }}" method="POST">
+        <form action="{{ route('fahotel.update', $hotel->id) }}" method="POST">
             @csrf
             @method('PUT')
 
             <div class="mb-3">
-                <label for="tipe" class="form-label text-dark">Tipe Kamar :</label>
-                <select name="tipe" class="form-control" required>
-                    <option value="" disabled selected>Pilih tipe kamar...</option>
-                    <option value="Superior" {{ $kamar->tipe == 'Superior' ? 'selected' : '' }}>Superior</option>
-                    <option value="Deluxe" {{ $kamar->tipe == 'Deluxe' ? 'selected' : '' }}>Deluxe</option>
+                <label for="nama_fasilitas" class="form-label fw-bold"> Fasilitas : </label>
+                <input type="text" name="nama_fasilitas" class="form-control" value="{{ $hotel->nama_fasilitas }}" required >
+            </div>
+
+            <div class="mb-3">
+                <label for="status" class="form-label text-dark"> Status :</label>
+                <select name="status" class="form-control" required>
+                    <option value="" disabled selected>Pilih status...</option>
+                    <option value="available" {{ $hotel->status == 'available' ? 'selected' : '' }}>Available</option>
+                    <option value="not available" {{ $hotel->status == 'not available' ? 'selected' : '' }}>Not available</option>
                 </select>
             </div>
             
-
             <div class="mb-3">
-                <label for="jmlh_kamar" class="form-label fw-bold">Jumlah Kamar</label>
-                <input type="number" name="jmlh_kamar" class="form-control" value="{{ $kamar->jmlh_kamar }}" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="harga" class="form-label fw-bold">Harga</label>
-                <input type="number" name="harga" class="form-control" value="{{ $kamar->harga }}" required>
+                <label for="keterangan" class="form-label fw-bold"> Keterangan : </label>
+                <textarea name="keterangan" class="form-control" required>{{ $hotel->keterangan }}</textarea>
             </div>
 
             <div class="d-flex justify-content-between">
-                <a href="{{ route('kamar.index') }}" class="btn btn-secondary">Kembali</a>
-                <button type="submit" class="btn btn-primary btn-lg">Update Data</button>
+                <a href="{{ route('fahotel.index') }}" class="btn btn-secondary">Kembali</a>
+                <button type="submit" class="btn btn-primary btn-lg">Update</button>
             </div>
         </form>
     </div>

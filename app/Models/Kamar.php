@@ -9,6 +9,7 @@ class Kamar extends Model
 {
     use HasFactory;
 
+    protected $table = 'kamars';
     protected $fillable = [
         'tipe',
         'jmlh_kamar',
@@ -17,6 +18,6 @@ class Kamar extends Model
 
     public function fakamar()
     {
-        return $this->hasMany(FasilitasKamar::class, 'kamar_id');
+        return $this->hasMany(FasilitasKamar::class, 'kamar_id','id');
     }
 }

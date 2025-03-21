@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CobaController;
 use App\Http\Controllers\FaHotelController;
 use App\Http\Controllers\FaKamarController;
 use App\Http\Controllers\KamarController;
@@ -43,7 +44,7 @@ Route::resource('resepsionis', ResepsionisController::class);
 Route::resource('kamar', KamarController::class);
 Route::resource('fakamar', FaKamarController::class);
 Route::resource('fahotel', FaHotelController::class);
-
+Route::resource('coba', CobaController::class);
 
 
 

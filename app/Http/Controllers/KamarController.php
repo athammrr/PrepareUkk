@@ -55,15 +55,25 @@ class KamarController extends Controller
     }
 
 
-    public function update(Request $request, Kamar $kamar)
+    public function update(Request $request, $id)
     {
+        $kamar = Kamar::where('id',$id)->first();
+
+        if(!$kamar){
+            return back()->withErrors(['msg' => 'Data tidak ditemukan']);
+        }
+
         $request->validate([
             'tipe'  => 'required|string|max:255|in:Superior,Deluxe', 
             'jmlh_kamar' => 'required|integer|max:50',
             'harga' => 'required|string|max:100',
         ]);
 
-        $kamar->update($request->all());
+        $kamar->update([
+            'tipe' => $request->tipe,
+            'jmlh_kamar'=> $request->jmlh_kamar,
+            'harga' => $request->harga,
+        ]);
 
         return redirect()->route('kamar.index')
             ->with('success', 'Data aparat updated successfully.');

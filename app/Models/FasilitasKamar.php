@@ -18,6 +18,6 @@ class FasilitasKamar extends Model
 
     public function kamar()
     {
-        return $this->belongsTo(Kamar::class, 'kamar_id');
+        return $this->belongsTo(Kamar::class, 'kamar_id','id');
     }
 }

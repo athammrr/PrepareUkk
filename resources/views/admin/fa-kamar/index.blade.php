@@ -33,7 +33,7 @@
                         @if($fakamar->isNotEmpty())
                             @foreach ($fakamar as $data)
                                 <tr>
-                                    <td>{{ $data->kamar->tipe }}</td>
+                                    <td>{{ $data->kamar ? $data->kamar->tipe : 'Tidak ditemukan' }}</td>
                                     <td>{{ $data->nama_fasilitas }}</td>
                                     <td class="d-flex gap-5">
                                         <a href="{{ route('fakamar.show', $data->id) }}" class="btn btn-primary btn-sm">
@@ -43,7 +43,7 @@
                                         <a href="{{ route('fakamar.edit', $data->id) }}" class="btn btn-warning btn-sm">
                                             Edit
                                         </a>
-                                        {{-- <form action="{{ route('kamar.destroy', $data->id) }}" method="POST" style="display:inline;">
+                                        {{-- <form action="{{ route('fakamar.destroy', $data->id) }}" method="POST" style="display:inline;">
                                             @csrf
                                             @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm">

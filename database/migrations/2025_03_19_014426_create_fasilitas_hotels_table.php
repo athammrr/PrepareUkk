@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama_fasilitas');
             $table->enum('status', ['available','not available'])->default('available');
             $table->string('keterangan');
+            $table->string('image');
             $table->timestamps();
         });
     }

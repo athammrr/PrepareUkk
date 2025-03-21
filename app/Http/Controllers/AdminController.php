@@ -17,7 +17,7 @@ class AdminController extends Controller
     }
 
     public function create() {
-        return view('admin.kamar.tambah');
+        return view('admin.akun.tambah');
     }
 
     public function store(Request $request)
