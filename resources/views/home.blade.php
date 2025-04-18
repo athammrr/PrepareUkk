@@ -71,39 +71,4 @@
         </div>
      </div>
 
-     <div class="mx-auto max-w-8xl lg:px-8" id="fasilitas">
-        <div class="flex justify-center">
-            <div class="text-center">
-                <h1 class="text-5xl font-extrabold text-gray-400 tracking-wide relative inline-block">
-                    Fasilitas
-                </h1>
-            </div>
-            
-            
-        </div>
-        <div class="grid grid-cols-3 gap-6 p-4 rounded-lg ">
-            <div class="relative overflow-hidden rounded-lg bg-gray-800">
-                <img src="assets/images/1.jpg" alt="MacBook" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
-            </div>
-            <div class="overflow-hidden rounded-lg bg-gray-800">
-                <img src="assets/images/2.jpg" alt="MacBook" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
-            </div>
-            <div class="overflow-hidden rounded-lg bg-gray-800">
-                <img src="assets/images/3.jpg" alt="MacBook" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
-            </div>
-            <div class="overflow-hidden rounded-lg bg-gray-800">
-                <img src="assets/images/4.jpg" alt="MacBook" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
-            </div>
-            <div class="overflow-hidden rounded-lg bg-gray-800">
-                <img src="assets/images/5.jpg" alt="MacBook" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
-            </div>
-            <div class="overflow-hidden rounded-lg bg-gray-800">
-                <img src="assets/images/7.jpg" alt="MacBook" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
-            </div>
-        </div>
-    </div>
-    
-    
-
-
 @endsection
