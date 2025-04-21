@@ -31,6 +31,11 @@
                 <input type="number" name="harga" class="form-control" value="{{ $kamar->harga }}" required>
             </div>
 
+            <div class="mb-3">
+                <label for="keterangan" class="form-label fw-bold"> Keterangan : </label>
+                <textarea name="keterangan" class="form-control" required>{{ $kamar->keterangan }}</textarea>
+            </div>
+
             <div class="d-flex justify-content-between">
                 <a href="{{ route('kamar.index') }}" class="btn btn-secondary">Kembali</a>
                 <button type="submit" class="btn btn-primary btn-lg">Update Data</button>

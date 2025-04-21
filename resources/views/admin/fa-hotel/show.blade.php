@@ -20,6 +20,10 @@
                     <th>Keterangan  :</th>
                     <td>{{ $hotel->keterangan }}</td>
                 </tr>
+                <tr>
+                    <th>Image  :</th>
+                    <td><img class="size" src="{{ asset('fasilitas_hotels/'. Session::get('image')) }}" alt="gambar"></td>
+                </tr>
             </table>
             <div class="p-3">
                 <a href="{{ route('fahotel.index') }}" class="btn btn-primary btn-lg">Kembali</a>

@@ -7,6 +7,7 @@ use App\Http\Controllers\FaKamarController;
 use App\Http\Controllers\KamarController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResepsionisController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::group(['middleware'=>'role:admin, resepsionis, user', 'prefix'=>'car','as'=>'car.'], function() {
@@ -39,6 +40,17 @@ Route::get('/dashboard', [AdminController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Auth::routes(['verify' => true]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
+
+
 Route::resource('admin', AdminController::class);
 Route::resource('resepsionis', ResepsionisController::class);
 Route::resource('kamar', KamarController::class);
@@ -46,14 +58,9 @@ Route::resource('fakamar', FaKamarController::class);
 Route::resource('fahotel', FaHotelController::class);
 Route::resource('coba', CobaController::class);
 
+Route::resource('user', UserController::class);
+Route::get('/kmr', [UserController::class, 'kamar'])->name('user.kamar');
+Route::get('/fasilitas', [UserController::class, 'fasilitas'])->name('user.fa');
 
-
-
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
 require __DIR__.'/auth.php';

@@ -45,16 +45,14 @@
                                         <a href="#" class="btn btn-warning btn-sm">
                                             Edit
                                         </a>
+                                        <form action="{{ route('admin.destroy', $data->id) }}" method="POST" style="display:inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm">
+                                                    Delete
+                                                </button>
+                                            </form>
                                     </td>
-                                    {{-- <td>
-                                    <form action="{{ route('admin.destroy', $data->id) }}" method="POST" style="display:inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm">
-                                                Delete
-                                            </button>
-                                        </form>
-                                        </td> --}}
                                 </tr>
                             @endforeach
                         @else

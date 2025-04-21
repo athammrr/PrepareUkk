@@ -26,10 +26,16 @@ class KamarController extends Controller
             'tipe'  => 'required|string|max:255|in:Superior,Deluxe', 
             'jmlh_kamar' => 'required|integer|max:50',
             'harga' => 'required|string|max:100',
+            'keterangan' => 'required|string|max:255',
         ]);
 
         // Simpan data ke database
-        Kamar::create($request->all());
+        Kamar::create([
+            'tipe' => $request->tipe,
+            'jmlh_kamar'=> $request->jmlh_kamar,
+            'harga' => $request->harga,
+            'keterangan' => $request->keterangan,
+        ]);
 
         return redirect()->route('kamar.index')->with('success', 'Kamar berhasil ditambahkan');
     }
@@ -67,16 +73,18 @@ class KamarController extends Controller
             'tipe'  => 'required|string|max:255|in:Superior,Deluxe', 
             'jmlh_kamar' => 'required|integer|max:50',
             'harga' => 'required|string|max:100',
+            'keterangan' => 'required|string|max:255',
         ]);
 
         $kamar->update([
             'tipe' => $request->tipe,
             'jmlh_kamar'=> $request->jmlh_kamar,
             'harga' => $request->harga,
+            'keterangan' => $request->keterangan,
         ]);
 
         return redirect()->route('kamar.index')
-            ->with('success', 'Data aparat updated successfully.');
+            ->with('success', 'Data kamar updated successfully.');
     }
 
 

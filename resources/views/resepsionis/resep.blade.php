@@ -24,6 +24,7 @@
                 <thead>
                     <tr>
                         <th>Nama Tamu</th>
+                        <th>No. Hp</th>
                         <th>Tanggal Checkin</th>
                         <th>Tanggal Checkout</th>
                         <th>Aksi</th>
@@ -34,14 +35,15 @@
                         @foreach ($cekin as $data)
                             <tr>
                                 <td>{{ $data->nama_tamu }}</td>
-                                <td>{{ $data->tgl_Cekin }}</td>
-                                <td>{{ $data->tgl_Cekout }}</td>
+                                <td>{{ $data->no_hp }}</td>
+                                <td>{{ $data->check_in }}</td>
+                                <td>{{ $data->check_out }}</td>
                                 <td class="d-flex gap-5">
                                     <a href="{{ route('resepsionis.show', $data->id) }}" class="btn btn-primary btn-sm">
                                         Show
                                     </a>
 
-                                    <a href="#" class="btn btn-warning btn-sm">
+                                    <a href="{{ route('resepsionis.edit', $data->id) }}" class="btn btn-warning btn-sm">
                                         Check In 
                                     </a>
                                 </td>

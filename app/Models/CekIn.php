@@ -13,13 +13,20 @@ class CekIn extends Model
     protected $table = 'cekin';
     protected $fillable = [
         'nama_tamu',
-        'tgl_Cekin',
-        'tgl_Cekout',
+        'email',
+        'no_hp',
         'tipe',
-        'jmlh_Kamar',
+        'jumlah_kamar',
+        'check_in',
+        'check_out',
+        'status',
     ];
 
     protected $casts = [
         'tggl_pemesanan' => 'timestamp',
     ];
+
+    public function kamar(){
+        return $this->belongsTo(Kamar::class, 'tipe','id');
+    }
 }

@@ -19,7 +19,7 @@ class FaHotelController extends Controller
         return view('admin.fa-hotel.tambah');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $image)
     {
         $request->validate([
             'nama_fasilitas'  => 'required|string|max:255', 

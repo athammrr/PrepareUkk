@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\FasilitasKamar;
 use App\Models\Kamar;
 
-class FaKamarController extends Controller
+class FaKamarController extends Controller 
 {
     public function index()
     {

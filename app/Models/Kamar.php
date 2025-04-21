@@ -14,6 +14,7 @@ class Kamar extends Model
         'tipe',
         'jmlh_kamar',
         'harga',
+        'keterangan',
     ];  
 
     public function fakamar()

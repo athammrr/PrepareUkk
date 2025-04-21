@@ -20,6 +20,10 @@
                     <th>Harga</th>
                     <td>{{ $kamar->harga }}</td>
                 </tr>
+                <tr>
+                    <th>Keterangan</th>
+                    <td>{{ $kamar->keterangan }}</td>
+                </tr>
             </table>
             <div class="p-3">
                 <a href="{{ route('kamar.index') }}" class="btn btn-primary btn-lg">Kembali</a>

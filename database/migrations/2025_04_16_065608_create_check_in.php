@@ -16,12 +16,15 @@ return new class extends Migration
         Schema::create('CekIn', function (Blueprint $table) {
             $table->id();
             $table->string('nama_tamu');
-            $table->date('tgl_Cekin');
-            $table->date('tgl_Cekout');
-            $table->string('tipe');
-            $table->integer('jmlh_Kamar');
-            $table->timestamp('tggl_pemesanan');
+            $table->string('email');
+            $table->string('no_hp');
+            $table->integer('jumlah_kamar');
+            $table->date('check_in');
+            $table->date('check_out');
+            $table->enum('status', ['pending','approved'])->default('pending');
             $table->timestamps();
+
+            $table->foreignId('tipe')->constrained('kamars')->onDelete('cascade');
         });
     }
     /**

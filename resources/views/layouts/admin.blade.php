@@ -19,7 +19,7 @@
 
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
-                @include('layouts.topbar')
+                @include('layouts.topbar') 
 
                 <div class="container-fluid">
                     @yield('content')

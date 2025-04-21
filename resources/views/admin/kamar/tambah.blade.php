@@ -14,7 +14,7 @@
                     <select name="tipe" class="form-control" required>
                         <option value="" disabled selected>Pilih tipe kamar...</option>
                         <option value="Superior">Superior</option>
-                        <option value="Deluxe">Deluxe</option>
+                        <option value="Deluxe">Deluxe</option> 
                     </select>
                 </div>
             
@@ -26,6 +26,11 @@
                 <div class="mb-3">
                     <label for="harga" class="form-label">Harga:</label>
                     <input type="text" name="harga" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="keterangan" class="form-label fw-bold"> Keterangan : </label>
+                    <textarea name="keterangan" class="form-control" required></textarea>
                 </div>
             
                 <button type="submit" class="btn btn-primary">Tambah Kamar</button>

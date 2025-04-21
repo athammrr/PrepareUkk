@@ -6,11 +6,11 @@
 
     <div class="bg-white rounded px-4 py-2">
         <h1 class="text-dark">HOTEL HEBAT</h1>
-    </div>
+    </div>  
 
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto">
-        <!-- User Dropdown -->
+        <!-- User Dropdown -->  
         @php
             $role = Auth::user()->role ?? 'guest'; 
         @endphp

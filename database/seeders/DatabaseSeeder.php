@@ -18,14 +18,20 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'role' => 'admin',
-            'password' => Hash::make('123'),
+            'password' => Hash::make('password'),
         ]);
 
         \App\Models\User::factory()->create([
             'name' => 'Dika',
             'email' => 'dika@gmail.com',
             'role' => 'resepsionis',
-            'password' => Hash::make('123'),
+            'password' => Hash::make('password'),
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Faa',
+            'email' => 'fa@gmail.com',
+            'role' => 'user',
+            'password' => Hash::make('password'),
         ]);
     }
 }

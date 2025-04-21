@@ -34,7 +34,7 @@ class AuthenticatedSessionController extends Controller
         } else if(Auth::user() && Auth::user()->role == 'resepsionis') {
             return redirect()->route('resepsionis.index');
         } elseif(Auth::user() && Auth::user()->role == 'user') {
-            return redirect()->route('home');
+            return redirect()->route('user.index');
         } else {
             Auth::guard()->logout();
             return redirect()->route('login')->with('status', 'You are not authorized to access this page');

@@ -17,24 +17,36 @@
                     <td>{{ $cekin->nama_tamu }}</td>
                 </tr>
                 <tr>
-                    <th>Tanggal Check In</th>
-                    <td>{{ $cekin->tgl_Cekin }}</td>
+                    <th>E-mail</th>
+                    <td>{{ $cekin->email }}</td>
                 </tr>
                 <tr>
-                    <th>Tanggal Check Out</th>
-                    <td>{{ $cekin->tgl_Cekout }}</td>
+                    <th>Nomor Handphone</th>
+                    <td>{{ $cekin->no_hp }}</td>
                 </tr>
                 <tr>
-                    <th>Tipe Kamar</th>
+                    <th>Tipe Kamar/th>
                     <td>{{ $cekin->tipe }}</td>
                 </tr>
                 <tr>
+                    <th>Tanggal Check In</th>
+                    <td>{{ $cekin->check_in }}</td>
+                </tr>
+                <tr>
+                    <th>Tanggal Check Out</th>
+                    <td>{{ $cekin->check_out }}</td>
+                </tr>
+                <tr>
                     <th>Jumlah Kamar</th>
-                    <td>{{ $cekin->jmlh_Kamar }}</td>
+                    <td>{{ $cekin->jumlah_kamar }}</td>
+                </tr>
+                <tr>
+                    <th>Status</th>
+                    <td>{{ $cekin->status }}</td>
                 </tr>
                 <tr>
                     <th>Tanggal Pemesanan</th>
-                    <td>{{ $cekin->tggl_pemesanan }}</td>
+                    <td>{{ $cekin->created_at }}</td>
                 </tr>
             </table>
             <div class="p-3">

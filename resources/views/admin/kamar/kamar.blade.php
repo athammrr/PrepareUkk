@@ -30,7 +30,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if($kamar->isNotEmpty())
+                        @if($kamar->isNotEmpty()) 
                             @foreach ($kamar as $data)
                                 <tr>
                                     <td>{{ $data->tipe }}</td>

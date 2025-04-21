@@ -39,7 +39,7 @@
                                     <td>{{ $data->status }}</td>
                                     <td>{{ $data->keterangan }}</td>
                                     <td>
-                                        <img class="size" src="{{ asset('fasilitas_hotels/'. Session::get('image')) }}" alt="gambar">
+                                        <img class="size" src="#" alt="gambar">
                                     </td>
                                     <td class="d-flex gap-5">
                                         <a href="{{ route('fahotel.show', $data->id) }}" class="btn btn-primary btn-sm">
